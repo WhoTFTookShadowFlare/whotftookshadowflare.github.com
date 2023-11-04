@@ -4,6 +4,12 @@ html {
 	color: #AAAAAA;
 }
 
+.center {
+	margin: auto;
+	align-items: center;
+	text-align: center;
+}
+
 a:link {
 	color: #FF4B00
 }

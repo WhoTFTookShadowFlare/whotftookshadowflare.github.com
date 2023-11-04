@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Egg Clicker</title>
+		<link rel="stylesheet" href="../global.css">
+		<link rel="icon" href="../resources/favicon.png">
+	</head>
+	
+	<body class="center">
+		<div id="score" style="color: #00000000; margin-top: 1.125%;">0</div>
+		<div><button id="egg"><img>TODO Put image of egg</button></div>
+	</body>
+
+	<script>
+		var score = 0;
+		const button = document.getElementById("egg");
+		const scoreText = document.getElementById("score");
+
+		console.log("You have found an egg, perhaps clicking on it will have some results.");
+
+		function onClick() {
+			score += 1;
+			scoreText.innerText = score;
+			scoreText.style.removeProperty("color");
+			if(score > 100) {
+				scoreText.style.setProperty("font-size", (score) + "%");
+			}
+
+			document.cookie = "score=" + score + "; path=/";
+		}
+
+		function onLeave(evt) {
+			evt.preventDefault();
+			evt.returnValue = "";
+		}
+
+		window.addEventListener("beforeunload", onLeave);
+
+		button.addEventListener("click", onClick);
+	</script>
+</html>
